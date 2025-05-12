@@ -1,0 +1,207 @@
+:root {
+  --font-base: 'Segoe UI', sans-serif;
+  --accent-color: #bb86fc; /* Morado claro */
+  --bg-start: #3a0ca3; /* Morado oscuro */
+  --bg-mid: #5f0f40; /* Morado intermedio */
+  --bg-end: #9d4edd; /* Morado más claro */
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-base);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(-45deg, var(--bg-start), var(--bg-mid), var(--bg-end));
+  background-size: 300% 300%;
+  animation: bgAnimate 12s ease infinite;
+}
+
+@keyframes bgAnimate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Nuevo efecto para el h1 */
+header h1 {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px var(--accent-color),
+                 0 0 10px var(--accent-color),
+                 0 0 20px var(--accent-color),
+                 0 0 40px var(--bg-mid);
+    transform: scale(1);
+  }
+  100% {
+    text-shadow: 0 0 10px var(--accent-color),
+                 0 0 20px var(--accent-color),
+                 0 0 30px var(--bg-end),
+                 0 0 50px var(--accent-color);
+    transform: scale(1.03);
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--accent-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--accent-color);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  transition: transform var(--transition);
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card strong {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin: 2rem 0 1rem 0;
+  text-align: center;
+}
+
+section ol, section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+section ol li, section ul li {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: background var(--transition), transform var(--transition);
+}
+
+section ol li:hover, section ul li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+}
+
+section ol li img, section ul li img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+section ul li h3 {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+  color: var(--accent-color);
+}
+
+section ul li p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #f0e6ff;
+}
+
+button#faqButton {
+  margin: 2rem 0 1rem;
+  padding: 0.8rem 2rem;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2c003e;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+button#faqButton:hover {
+  background-color: #9d4edd;
+  transform: scale(1.05);
+}
+
+#faq {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+#faq h2 {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#faq div {
+  margin-bottom: 1.5rem;
+}
+
+#faq h3 {
+  font-size: 1.4rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+#faq p {
+  font-size: 1rem;
+  color: #f0e6ff;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+  section h2 {
+    font-size: 1.8rem;
+  }
+}

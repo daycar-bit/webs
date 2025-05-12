@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Señal Colombia Premium</title>
+  <link rel="stylesheet" href="estilo.css">
+
+  <style>
+    /* Estilos adicionales solo para el carrusel */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      width: 90%;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .carousel-item img {
+      width: 70%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .carousel-item strong {
+      display: block;
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      font-size: 2rem;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 50%;
+    }
+
+    .carousel-button.prev {
+      left: 10px;
+    }
+
+    .carousel-button.next {
+      right: 10px;
+    }
+
+    .carousel-button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+
+  <script>
+    function toggleFAQ() {
+      const faqSection = document.getElementById('faq');
+      if (faqSection.style.display === 'none') {
+        faqSection.style.display = 'block';
+        document.getElementById('faqButton').innerText = 'Ocultar preguntas frecuentes';
+      } else {
+        faqSection.style.display = 'none';
+        document.getElementById('faqButton').innerText = 'Mostrar preguntas frecuentes';
+      }
+    }
+
+    // Carrusel de tendencias
+    window.addEventListener('load', function() {
+      const track = document.querySelector('.carousel-track');
+      const items = document.querySelectorAll('.carousel-item');
+      const prevButton = document.querySelector('.carousel-button.prev');
+      const nextButton = document.querySelector('.carousel-button.next');
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        const width = items[0].clientWidth;
+        track.style.transform = `translateX(-${currentIndex * width}px)`;
+      }
+
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel();
+      });
+
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+      });
+
+      setInterval(() => {
+        nextButton.click();
+      }, 5000);
+
+      window.addEventListener('resize', updateCarousel);
+      updateCarousel();
+    });
+  </script>
+
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Se%C3%B1al_Colombia_logo.svg/1920px-Se%C3%B1al_Colombia_logo.svg.png" alt="Señal Colombia Premium">
+  </div>
+  <nav class="main-nav">
+    <a href="#">Español</a>
+    <a href="#">Iniciar sesión</a>
+  </nav>
+  <div class="content">
+    <h1>Películas y series ilimitadas y mucho más</h1>
+    <p>A partir de un menor precio o con el cupo Brilla. Cancela cuando quieras.</p>
+    <form action="#" method="post">
+      <input type="email" placeholder="Email" required>
+      <input type="submit" value="Comenzar">
+    </form>
+  </div>
+</header>
+
+<section>
+  <h2 style="text-align: center;">Tendencias</h2>
+
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="carousel-item">
+        <img src="http://mrtrance.com/wp-content/uploads/2012/02/mr_trance_la_serie.png" alt="Mr. Trance">
+        <strong>Mr. Trance</strong>
+      </div>
+      <div class="carousel-item">
+        <img src="https://cntvinfantil.cl/cntv/wp-content/uploads/2019/12/37-series-puerto-papel.jpg" alt="Puerto Papel">
+        <strong>Puerto Papel</strong>
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4drqZa8S2vG6vDHszm8spXSPeoo.jpg" alt="Juaco vs Paco">
+        <strong>Juaco vs Paco</strong>
+      </div>
+    </div>
+
+    <button class="carousel-button prev">&#10094;</button>
+    <button class="carousel-button next">&#10095;</button>
+  </div>
+</section>
+
+<section>
+  <h2>Más motivos para unirte</h2>
+  <ul>
+    <li>
+      <h3>Disfruta en tu TV</h3>
+      <p>Ve en Smart TVs, PlayStation, Xbox, Chromecast, Apple TV y más.</p>
+    </li>
+    <li>
+      <h3>Descarga tus series</h3>
+      <p>Guarda tus favoritas para verlas sin conexión.</p>
+    </li>
+    <li>
+      <h3>Ve donde quieras</h3>
+      <p>En tu celular, tablet, laptop y TV.</p>
+    </li>
+    <li>
+      <h3>Perfiles para niños</h3>
+      <p>Espacios seguros y divertidos para los más pequeños.</p>
+    </li>
+  </ul>
+</section>
+
+<button id="faqButton" onclick="toggleFAQ()">Mostrar preguntas frecuentes</button>
+
+<section id="faq" style="display: none;">
+  <h2>Preguntas Frecuentes</h2>
+  <div>
+    <h3>¿Qué es Señal Colombia Premium?</h3>
+    <p>Es un servicio de streaming con contenido exclusivo de Señal Colombia.</p>
+  </div>
+  <div>
+    <h3>¿Cuánto cuesta?</h3>
+    <p>muy barato,Cancela cuando quieras.</p>
+  </div>
+  <div>
+    <h3>¿Dónde puedo verlo?</h3>
+    <p>En Smart TVs, consolas, celulares, tablets, y más.</p>
+  </div>
+  <div>
+    <h3>¿Puedo cancelar?</h3>
+    <p>Sí, no hay contratos a largo plazo.</p>
+  </div>
+  <div>
+    <h3>¿Qué contenido hay?</h3>
+    <p>Series, películas, infantiles y documentales de alta calidad.</p>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+/* estilos.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f3f4f6;
+    text-align: center;
+}
+
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+
+
+h1 {
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    font-size: 26px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+textarea {
+    width: 300px;
+    min-height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;  /* Deshabilitar la opción de cambiar el tamaño manualmente */
+    overflow-y: hidden;  /* Evitar la barra de desplazamiento vertical */
+  }
+  
+  #resultado {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;  /* Asegurarse que ocupe todo el espacio disponible */
+    max-width: 600px;  /* Limitar el ancho máximo */
+    word-wrap: break-word;  /* Para que las palabras largas se rompan */
+    word-break: break-word;  /* Romper las palabras largas si es necesario */
+    padding: 10px;
+    background-color: #fff;  /* Mismo color de fondo que el contenedor */
+    border: 1px solid #ccc;  /* Borde suave */
+  }
+
+
+
+
+button:hover {
+    background-color: #45a049;
+}
+
+
